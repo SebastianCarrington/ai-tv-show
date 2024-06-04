@@ -10,7 +10,7 @@ export async function generateScript() {
 
   const message = `Create a sitcom scene script that only includes ${characters}. There should be no extra characters other than the ones listed. The script should have a title formatted Title: show title. The topic is "${topic}"`;
 
-  console.log("Generating script...");
+  console.log(`Generating script "${topic}" with characters ${characters}...`);
 
   const completion = await openai.chat.completions.create({
     messages: [{ role: "system", content: message }],
@@ -76,6 +76,7 @@ export async function generateScript() {
     });
   }
 
+  console.log("Completed!");
   mongo.removeTopic(topic);
 
   return script;
