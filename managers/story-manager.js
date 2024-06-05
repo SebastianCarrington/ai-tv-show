@@ -60,6 +60,7 @@ export async function generateScript() {
 
   const script = {
     title: script_raw[0].split(": ")[1],
+    characters: characters,
     lines: [],
   };
 
